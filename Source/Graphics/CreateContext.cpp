@@ -1,5 +1,7 @@
 #include "Graphics/CreateContext.h"
-#include "Meta/LoadGameOptions.h"
+#include "Meta/LoadWindowOptions.h"
+
+#include <iostream>
 
 GLFWwindow* window;
 
@@ -27,7 +29,9 @@ void Graphics::LoadSetingsFromMeta()
 	int width,height;
 	bool isFloating;
 
-	LoadGameOptions(width,height,isFloating);
+	std::cout << LoadWindowOptions("Resources/Options.dat",width,height,isFloating);
+
+	std::cout << width << ' '  << height << ' ' << isFloating << std::endl;
 
 	if(!glfwInit())
 		throw "Error glfw init!";
