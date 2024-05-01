@@ -1,28 +1,13 @@
 #include "Graphics/CreateContext.h"
 #include "Meta/LoadGameOptions.h"
 
-/**
- * \addtogroup graphics_module
- * \{
- */
-
-///Object for window
 GLFWwindow* window;
 
-///\fn void CreateContext
-///DON'T USE IT.
 void CreateContext()
 {
 	throw "Don't use CreateContext";	
 }
 
-///\fn void Graphics::CreateStandartContext
-///Create context for standart setings
-/**
- * \throw char* If glfw can't init;
- * \throw char* If glfw can't create window
- * \warning Use if can't load context from Options.dat
- */
 void Graphics::CreateStandartContext()
 {
 	if(!glfwInit())
@@ -37,14 +22,6 @@ void Graphics::CreateStandartContext()
 	glfwMakeContextCurrent(window);
 }
 
-///\fn void Graphics::LoadSetingsFromMeta
-///Create context for standart setings
-/**
- * \fn LoadSetingsFromMeta()
- * \throw char* If glfw can't init;
- * \throw char* If glfw can't create window
- * \throw char* If meta tag != [RTA_META_Game_Options]
- */
 void Graphics::LoadSetingsFromMeta()
 {
 	int width,height;
@@ -67,12 +44,8 @@ void Graphics::LoadSetingsFromMeta()
 	glfwMakeContextCurrent(window);
 }
 
-///\fn Graphics::DestroyContext
-///Close window and Destroy window
 void Graphics::DestroyContext()
 {
 	glfwDestroyWindow(window);
 	glfwTerminate();
 }
-
-/** \} */
