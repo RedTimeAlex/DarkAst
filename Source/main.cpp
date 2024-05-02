@@ -1,15 +1,24 @@
 #include <iostream>
 #include <stdio.h>
 #include "Graphics/CreateContext.h"
+
+int isRunnig = true;
+
 int main()
 {
-	std::cout << "Hello world" << std::endl;
 
-	Graphics::LoadSetingsFromMeta();
+	GraphicsWindowCloseEvent = [](){isRunnig = false;};
 
-	getchar();
+	fprintf(stderr, "Error: %s\n", "description");
 
-	Graphics::DestroyContext();
+	std::cout << GraphicsStart() << std::endl;
+
+	while(isRunnig)
+	{
+		GraphicsUpdate();	
+	}
+
+	GraphicsStop();
 
 	return 0;
 }

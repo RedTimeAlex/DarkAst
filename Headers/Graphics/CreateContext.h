@@ -1,34 +1,27 @@
 #include <GLFW/glfw3.h>
-///  @addtogroup Graphics_module  
-///  @{
-	
-///DON'T USE IT!
+///\addtogroup Graphics_module  
+///\{
+
+///Create gl context and open window
 /**
- * \warning DON'T USE IT!
+ * \returns If return 1, can't glfw init;\n
+ * If return 2, can't create window;\n
+ * IF return 5, create window, but LoadWindowOptions() returned 1;
+ * IF return 6, create window, but LoadWindowOptions() returned 2;
+ * \see int LoadWindowOptions();
  */
-void CreateContext();
+int GraphicsStart();
 
-///namespace with Functions for currecti work 
-namespace Graphics
-{
+///Events for close window
+/**
+ * This pointer is used when the user closes the window.
+ */
+extern void (*GraphicsWindowCloseEvent)();
 
-	///Open window and create context from standart context
-	/**
-	 * \throw char* If glfw can't init;
-	 * \throw char* If glfw can't 
-	 * \warning Use if can't load context setings from files
-	 */
-	void CreateStandartContext(); 	
 
-	///Create context and load setings for files
-	/**
-	 * \throw char* If glfw can't init.
-	 * \throw char* If glfw can't create window.
-	 * \throw char* If meta tag != [RTA_META_Game_Options]
-	 */
-	void LoadSetingsFromMeta();	
+///Close window
+void GraphicsStop();
 
-	///close window and Destroy context
-	void DestroyContext();
-}
-/// @}
+///Update graphics events
+void GraphicsUpdate();
+///\}
