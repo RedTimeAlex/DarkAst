@@ -20,3 +20,12 @@ add_executable(DarkAst.out Source/main.cpp)
 target_link_libraries(DarkAst.out graphics meta)
 
 target_include_directories(DarkAst.out PRIVATE "Headers")
+
+add_custom_command(
+	TARGET DarkAst.out 
+	POST_BUILD
+	WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+	COMMAND ${CMAKE_COMMAND}
+	ARGS -E copy_directory "${PROJECT_SOURCE_DIR}/GameResources" "${PROJECT_BINARY_DIR}/bin"
+  	COMMENT "Copying Bundle Stuff"
+)

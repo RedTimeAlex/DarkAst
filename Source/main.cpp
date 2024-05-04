@@ -9,9 +9,7 @@ int main()
 
 	GraphicsWindowCloseEvent = [](){isRunnig = false;};
 
-	fprintf(stderr, "Error: %s\n", "description");
-
-	std::cout << GraphicsStart() << std::endl;
+	printf("0b%b\n",GraphicsStart());
 
 	while(isRunnig)
 	{
